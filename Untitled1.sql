@@ -845,3 +845,48 @@ mysql>       SELECT city,country FROM Address
 | ?slahiye       | Japan       |
 | Milena         | Japan       |
 +----------------+-------------+
+
+
+Exercise 10
+
+Transform all work emails into home emails and vice versa. BE CAREFUL ;)
+UPDATE ElectronicMail SET type = CASE when type = 'work' then 'home' when type = 'home' then 'work' end;
+Query OK, 2300 rows affected (0.02 sec)
+Rows matched: 2300  Changed: 2300  Warnings: 0
+
+mysql> SELECT * FROM ElectronicMail limit 10;
++----+---------+------+-------------------------------------------+
+| id | entryId | type | content                                   |
++----+---------+------+-------------------------------------------+
+|  1 |    5465 | work | lorem.fringilla.ornare@dictumplacerat.com |
+|  2 |    4453 | work | diam.Duis@magnaetipsum.org                |
+|  3 |    4949 | work | sit.amet@loremutaliquam.com               |
+|  4 |    5942 | work | massa@semperdui.com                       |
+|  5 |    4973 | work | Cum.sociis@risusNuncac.ca                 |
+|  6 |    4966 | work | augue@rutrum.net                          |
+|  7 |    5331 | work | sit@commodohendrerit.co.uk                |
+|  8 |    5736 | work | neque.et@cursus.co.uk                     |
+|  9 |    5116 | work | ornare.facilisis@arcu.com                 |
+| 10 |    4454 | work | parturient.montes@ornare.com              |
++----+---------+------+-------------------------------------------+
+10 rows in set (0.00 sec)
+
+mysql> UPDATE ElectronicMail SET type = CASE when type = 'work' then 'home' when type = 'home' then 'work' end;
+Query OK, 1610 rows affected (0.02 sec)
+Rows matched: 2300  Changed: 1610  Warnings: 0
+
+mysql> SELECT * FROM ElectronicMail limit 10;+----+---------+------+-------------------------------------------+
+| id | entryId | type | content                                   |
++----+---------+------+-------------------------------------------+
+|  1 |    5465 | home | lorem.fringilla.ornare@dictumplacerat.com |
+|  2 |    4453 | home | diam.Duis@magnaetipsum.org                |
+|  3 |    4949 | home | sit.amet@loremutaliquam.com               |
+|  4 |    5942 | home | massa@semperdui.com                       |
+|  5 |    4973 | home | Cum.sociis@risusNuncac.ca                 |
+|  6 |    4966 | home | augue@rutrum.net                          |
+|  7 |    5331 | home | sit@commodohendrerit.co.uk                |
+|  8 |    5736 | home | neque.et@cursus.co.uk                     |
+|  9 |    5116 | home | ornare.facilisis@arcu.com                 |
+| 10 |    4454 | home | parturient.montes@ornare.com              |
++----+---------+------+-------------------------------------------+
+10 rows in set (0.00 sec)
